@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Name" xmlns:local="clr-namespace:PlaceMark" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PlaceMark.AddPlaceNamePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" /><!--Padding-->
+            <RowDefinition Height="Auto" /><!--Title-->
+            <RowDefinition Height="15" /><!--Padding-->
+            <RowDefinition Height="Auto" /><!--Name-->
+            <RowDefinition Height="Auto" /><!--Description-->
+            <RowDefinition /><!--Image-->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" /><!--Padding-->
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" /><!--Padding-->
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Name the place" FontSize="Title" FontAttributes="Bold" />
+
+        <Label Grid.Row="3" Grid.Column="1" Text="Name" />
+        <Entry Grid.Row="3" Grid.Column="2" Text="{Binding Place.Name}" />
+
+        <Label Grid.Row="4" Grid.Column="1" Text="Description" />
+        <Entry Grid.Row="4" Grid.Column="2" Text="{Binding Place.Description}" />
+
+        <Image Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Source="MapPin.jpg" />
+
+    </Grid>
+</ContentPage>

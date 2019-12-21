@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Place.Name}" xmlns:Maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PlaceMark.PlaceDetailPage">
+   <Grid>
+       <Grid.RowDefinitions>
+           <RowDefinition Height="15" /><!--Padding-->
+           <RowDefinition /><!--Map-->
+           <RowDefinition Height="Auto" /><!--Name-->
+           <RowDefinition Height="Auto" /><!--Description-->
+           <RowDefinition Height="Auto" /><!--Latitude-->
+           <RowDefinition Height="Auto" /><!--Longitude-->
+           <RowDefinition Height="Auto" /><!--Delete-->
+           <RowDefinition Height="15" /><!--Padding-->
+       </Grid.RowDefinitions>
+
+       <Grid.ColumnDefinitions>
+           <ColumnDefinition Width="5" /><!--Padding-->
+           <ColumnDefinition />
+           <ColumnDefinition />
+           <ColumnDefinition Width="5" /><!--Padding-->
+       </Grid.ColumnDefinitions>
+
+       <Maps:Map x:Name="DetailMap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" IsShowingUser="True" />
+
+       <Label Grid.Row="2" Grid.Column="1" Text="Name:" />
+       <Label Grid.Row="2" Grid.Column="2" Text="{Binding Place.Name}" />
+
+       <Label Grid.Row="3" Grid.Column="1" Text="Description:" />
+       <Label Grid.Row="3" Grid.Column="2" Text="{Binding Place.Description}" />
+
+       <Label Grid.Row="4" Grid.Column="1" Text="Latitude:" />
+       <Label Grid.Row="4" Grid.Column="2" Text="{Binding Place.Latitude}" />
+
+       <Label Grid.Row="5" Grid.Column="1" Text="Longitude:" />
+       <Label Grid.Row="5" Grid.Column="2" Text="{Binding Place.Longitude}" />
+
+       <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Text="Delete place" Command="{Binding DeleteCommand}" />
+   </Grid>
+</ContentPage>

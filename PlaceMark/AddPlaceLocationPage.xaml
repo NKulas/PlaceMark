@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Location" xmlns:local="clr-namespace:PlaceMark" xmlns:Maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PlaceMark.AddPlaceLocationPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InvertBooleanConverter x:Key="BooleanInverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" /><!--Padding-->
+            <RowDefinition Height="Auto" /><!--Title-->
+            <RowDefinition Height="15" /><!--Padding-->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" /><!--Padding-->
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5" /><!--Padding-->
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Set place location" FontSize="Title" FontAttributes="Bold" />
+
+        <Label Grid.Row="3" Grid.Column="1" Text="Use current location" />
+        <Switch Grid.Row="3" Grid.Column="2" IsToggled="{Binding UseCurrentLocation}" />
+
+        <Label Grid.Row="4" Grid.Column="1" Text="Latitude:" />
+        <Entry Grid.Row="4" Grid.Column="2" Text="{Binding Latitude}" Keyboard="Numeric" IsEnabled="{Binding UseCurrentLocation, Converter={StaticResource Key=BooleanInverter}}" />
+
+        <Label Grid.Row="5" Grid.Column="1" Text="Longitude:" />
+        <Entry Grid.Row="5" Grid.Column="2" Text="{Binding Longitude}" Keyboard="Numeric" IsEnabled="{Binding UseCurrentLocation,Converter={StaticResource Key=BooleanInverter}}" />
+
+        <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Text="Save place" Command="{Binding SaveCommand}" />
+        <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Text="View on map" Command="{Binding ViewOnMapCommand}" />
+
+        <Maps:Map x:Name="TheMap" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" IsShowingUser="True" />
+    </Grid>
+</ContentPage>
